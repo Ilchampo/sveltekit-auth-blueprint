@@ -8,10 +8,6 @@
 	const { form, errors, enhance } = superForm(data, { resetForm: true });
 	let showPassword = false;
 	let showConfirmPassword = false;
-
-	const handleSubmit = (event: Event): void => {
-		enhance(event.currentTarget as HTMLFormElement);
-	};
 </script>
 
 <div class="flex flex-col">
