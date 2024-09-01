@@ -11,6 +11,7 @@
     "test": "vitest",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
+    "prisma": "npx prisma generate --schema=./prisma/schema.prisma",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -43,5 +44,8 @@
     "vitest": "^2.0.0",
     "yup": "^1.4.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^5.19.0"
+  }
 }
