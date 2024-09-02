@@ -1,11 +1,11 @@
-import type { PageServerLoad } from "./$types";
-import type { Actions } from "@sveltejs/kit";
+import type { PageServerLoad } from './$types';
+import type { Actions } from '@sveltejs/kit';
 
-import { signUpFormSchema } from "$lib/helpers/formSchemas";
-import { fail, superValidate } from "sveltekit-superforms";
-import { yup } from "sveltekit-superforms/adapters";
+import { signUpFormSchema } from '$lib/helpers/formSchemas';
+import { fail, superValidate } from 'sveltekit-superforms';
+import { yup } from 'sveltekit-superforms/adapters';
 
-import httpCodes from "$lib/constants/httpCodes";
+import httpCodes from '$lib/constants/httpCodes';
 
 export const load = (async () => {
   const form = await superValidate(yup(signUpFormSchema));
@@ -20,6 +20,6 @@ export const actions: Actions = {
     if (!form.valid) {
       return fail(httpCodes.BAD_REQUEST, { form });
     }
-    console.log("Reached the server action with form:", request);
+    console.log('Reached the server action with form:', request);
   },
 };

@@ -19,3 +19,13 @@ export interface IAuthChangePasswordParams {
   userId: string;
   newPassword: string;
 }
+
+export interface IAuthTokenDecoded {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;
+  verifiedEmail: boolean;
+  iat: number;
+  exp: number;
+}

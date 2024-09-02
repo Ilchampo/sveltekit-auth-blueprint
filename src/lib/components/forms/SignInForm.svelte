@@ -23,7 +23,7 @@
 
 <Hr hrClass="my-1 " />
 
-<form method="POST" action="?signIn" class="flex flex-col gap-4" use:enhance>
+<form method="POST" class="flex flex-col gap-4" use:enhance>
 	<div>
 		<Label for="email" class="mb-2">Email Address*:</Label>
 		<ButtonGroup class="w-full">
@@ -41,7 +41,7 @@
 			/>
 		</ButtonGroup>
 		{#if $errors.email}
-			<Helper class="mt-2" color="red">Please enter your email address</Helper>
+			<Helper class="mt-2" color="red">{$errors.email}</Helper>
 		{/if}
 	</div>
 	<div>
@@ -71,7 +71,11 @@
 			/>
 		</ButtonGroup>
 		{#if $errors.password}
-			<Helper class="mt-2" color="red">{$errors.password}</Helper>
+			{#if Array.isArray($errors.password)}
+				{#each $errors.password as error}
+					<Helper class="mt-2" color="red">{error}</Helper>
+				{/each}
+			{/if}
 		{/if}
 	</div>
 	<Button type="submit" class="mt-4 w-full shadow-xl" disabled={!$form.email || !$form.password}
